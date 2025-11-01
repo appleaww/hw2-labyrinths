@@ -1,6 +1,6 @@
-package academy.maze;
+package academy.maze.generators;
 
-import academy.maze.dto.Maze;
+import academy.maze.dto.MazeDTO;
 
 /** Генератор лабиринта */
 public interface Generator {
@@ -13,5 +13,5 @@ public interface Generator {
      * @return лабиринт
      * @throws IllegalArgumentException если невозможно сгенерировать лабиринт.
      */
-    Maze generate(int width, int height);
+    MazeDTO generate(int width, int height);
 }

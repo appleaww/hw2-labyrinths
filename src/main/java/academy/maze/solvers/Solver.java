@@ -1,8 +1,8 @@
-package academy.maze;
+package academy.maze.solvers;
 
-import academy.maze.dto.Maze;
-import academy.maze.dto.Path;
-import academy.maze.dto.Point;
+import academy.maze.dto.MazeDTO;
+import academy.maze.dto.PathDTO;
+import academy.maze.dto.PointDTO;
 
 /** Решатель лабиринта */
 public interface Solver {
@@ -15,5 +15,5 @@ public interface Solver {
      * @param end конечная точка.
      * @return путь в лабиринте.
      */
-    Path solve(Maze maze, Point start, Point end);
+    PathDTO solve(MazeDTO maze, PointDTO start, PointDTO end);
 }
