@@ -22,12 +22,12 @@ public class MazeRenderer {
     }
 
     public static void renderSolution(
-        MazeDTO originalMaze, PathDTO path, PointDTO start, PointDTO end, boolean useUnicode) {
+            MazeDTO originalMaze, PathDTO path, PointDTO start, PointDTO end, boolean useUnicode) {
         renderSolution(originalMaze, path, start, end, useUnicode ? MazeSymbols.unicode() : MazeSymbols.ascii());
     }
 
     public static void renderSolution(
-        MazeDTO originalMaze, PathDTO path, PointDTO start, PointDTO end, MazeSymbols symbols) {
+            MazeDTO originalMaze, PathDTO path, PointDTO start, PointDTO end, MazeSymbols symbols) {
         for (int y = 0; y < originalMaze.getHeight(); y++) {
             for (int x = 0; x < originalMaze.getWidth(); x++) {
                 PointDTO current = new PointDTO(x, y);

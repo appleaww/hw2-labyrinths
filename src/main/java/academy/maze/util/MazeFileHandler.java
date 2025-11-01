@@ -51,7 +51,7 @@ public class MazeFileHandler {
     }
 
     public static void saveSolution(MazeDTO originalMaze, PathDTO path, PointDTO start, PointDTO end, File file)
-        throws IOException {
+            throws IOException {
         MazeDTO solutionMaze = createSolutionMaze(originalMaze, path, start, end);
         saveMaze(solutionMaze, file);
     }
