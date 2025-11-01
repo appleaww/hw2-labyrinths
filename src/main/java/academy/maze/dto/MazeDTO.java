@@ -1,6 +1,5 @@
 package academy.maze.dto;
 
-
 public final class MazeDTO {
     private final int width;
     private final int height;

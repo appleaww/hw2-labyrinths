@@ -4,7 +4,6 @@ import academy.maze.dto.CellType;
 import academy.maze.dto.MazeDTO;
 import academy.maze.dto.PathDTO;
 import academy.maze.dto.PointDTO;
-
 import java.util.*;
 
 public class AStarSolver implements Solver {
@@ -34,7 +33,10 @@ public class AStarSolver implements Solver {
             if (this == obj) return true;
             if (obj == null || getClass() != obj.getClass()) return false;
             Node other = (Node) obj;
-            return Double.compare(this.fCost, other.fCost) == 0 && Double.compare(this.gCost, other.gCost) == 0 && Double.compare(this.hCost, other.hCost) == 0 && Objects.equals(this.point, other.point);
+            return Double.compare(this.fCost, other.fCost) == 0
+                    && Double.compare(this.gCost, other.gCost) == 0
+                    && Double.compare(this.hCost, other.hCost) == 0
+                    && Objects.equals(this.point, other.point);
         }
 
         @Override
