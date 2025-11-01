@@ -44,6 +44,11 @@ public class GenerateCommand implements Callable<Integer> {
             Generator generator = createGenerator();
             var maze = generator.generate(width, height);
 
+            if (maze == null) {
+                System.err.println("Failed to generate maze: generator returned null");
+                return 1;
+            }
+
             if (outputFile != null) {
                 MazeFileHandler.saveMaze(maze, outputFile);
             } else {
@@ -53,6 +58,7 @@ public class GenerateCommand implements Callable<Integer> {
             return 0;
         } catch (Exception e) {
             System.err.println(e.getMessage());
+            e.printStackTrace(System.err);
             return 1;
         }
     }

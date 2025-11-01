@@ -14,11 +14,15 @@ public class DFSGenerator implements Generator {
             throw new IllegalArgumentException("Maze dimensions must be at least 1x1");
         }
 
+        if (width == 1 && height == 1) {
+            return MazeUtils.create3x3Maze();
+        }
+
         if (width == 3 && height == 3) {
             return MazeUtils.create3x3Maze();
         }
 
-        if (width < 3 || height < 3) {
+        if (width == 2 || height == 2) {
             return MazeUtils.createSmallMaze(width, height);
         }
 

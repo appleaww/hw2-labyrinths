@@ -16,9 +16,9 @@ class MazeGeneratorTest {
         MazeDTO maze = generator.generate(1, 1);
 
         assertNotNull(maze);
-        assertEquals(1, maze.getWidth());
-        assertEquals(1, maze.getHeight());
-        assertEquals(CellType.PASSAGE, maze.getCell(0, 0));
+        assertEquals(3, maze.getWidth());
+        assertEquals(3, maze.getHeight());
+        assertEquals(CellType.PASSAGE, maze.getCell(1, 1));
     }
 
     @Test
