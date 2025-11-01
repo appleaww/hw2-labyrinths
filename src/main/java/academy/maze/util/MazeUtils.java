@@ -38,13 +38,12 @@ public final class MazeUtils {
 
     public static MazeDTO create3x3Maze() {
         MazeDTO maze = MazeDTO.create(3, 3);
+        String[] lines = {"###", "# #", "###"};
         for (int y = 0; y < 3; y++) {
+            String line = lines[y];
             for (int x = 0; x < 3; x++) {
-                if (x == 0 || x == 2 || y == 0 || y == 2) {
-                    maze.setCell(x, y, CellType.WALL);
-                } else {
-                    maze.setCell(x, y, CellType.PASSAGE);
-                }
+                char c = line.charAt(x);
+                maze.setCell(x, y, CellType.fromChar(c));
             }
         }
         return maze;
