@@ -38,17 +38,15 @@ public final class MazeUtils {
 
     public static MazeDTO create3x3Maze() {
         MazeDTO maze = MazeDTO.create(3, 3);
-        maze.setCell(0, 0, CellType.WALL);
-        maze.setCell(1, 0, CellType.WALL);
-        maze.setCell(2, 0, CellType.WALL);
-
-        maze.setCell(0, 1, CellType.WALL);
-        maze.setCell(1, 1, CellType.PASSAGE);
-        maze.setCell(2, 1, CellType.WALL);
-
-        maze.setCell(0, 2, CellType.WALL);
-        maze.setCell(1, 2, CellType.WALL);
-        maze.setCell(2, 2, CellType.WALL);
+        for (int y = 0; y < 3; y++) {
+            for (int x = 0; x < 3; x++) {
+                if (x == 0 || x == 2 || y == 0 || y == 2) {
+                    maze.setCell(x, y, CellType.WALL);
+                } else {
+                    maze.setCell(x, y, CellType.PASSAGE);
+                }
+            }
+        }
         return maze;
     }
 }
