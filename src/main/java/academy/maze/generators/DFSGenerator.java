@@ -3,6 +3,7 @@ package academy.maze.generators;
 import academy.maze.dto.CellType;
 import academy.maze.dto.MazeDTO;
 import academy.maze.dto.PointDTO;
+import academy.maze.util.MazeUtils;
 import java.util.*;
 
 public class DFSGenerator implements Generator {
@@ -13,32 +14,15 @@ public class DFSGenerator implements Generator {
             throw new IllegalArgumentException("Maze dimensions must be at least 1x1");
         }
 
-        MazeDTO maze = MazeDTO.create(width, height);
-
         if (width == 3 && height == 3) {
-            maze.setCell(0, 0, CellType.WALL);
-            maze.setCell(1, 0, CellType.WALL);
-            maze.setCell(2, 0, CellType.WALL);
-
-            maze.setCell(0, 1, CellType.WALL);
-            maze.setCell(1, 1, CellType.PASSAGE);
-            maze.setCell(2, 1, CellType.WALL);
-
-            maze.setCell(0, 2, CellType.WALL);
-            maze.setCell(1, 2, CellType.WALL);
-            maze.setCell(2, 2, CellType.WALL);
-            return maze;
+            return MazeUtils.create3x3Maze();
         }
 
         if (width < 3 || height < 3) {
-            for (int y = 0; y < height; y++) {
-                for (int x = 0; x < width; x++) {
-                    maze.setCell(x, y, CellType.PASSAGE);
-                }
-            }
-            return maze;
+            return MazeUtils.createSmallMaze(width, height);
         }
 
+        MazeDTO maze = MazeDTO.create(width, height);
         int genWidth = width % 2 == 0 ? width - 1 : width;
         int genHeight = height % 2 == 0 ? height - 1 : height;
 

@@ -2,6 +2,7 @@ package academy.maze.generators;
 
 import academy.maze.dto.CellType;
 import academy.maze.dto.MazeDTO;
+import academy.maze.util.MazeUtils;
 import java.util.*;
 
 public class PrimGenerator implements Generator {
@@ -25,37 +26,14 @@ public class PrimGenerator implements Generator {
         }
 
         if (width == 3 && height == 3) {
-            MazeDTO maze = MazeDTO.create(width, height);
-            maze.setCell(0, 0, CellType.WALL);
-            maze.setCell(1, 0, CellType.WALL);
-            maze.setCell(2, 0, CellType.WALL);
-
-            maze.setCell(0, 1, CellType.WALL);
-            maze.setCell(1, 1, CellType.PASSAGE);
-            maze.setCell(2, 1, CellType.WALL);
-
-            maze.setCell(0, 2, CellType.WALL);
-            maze.setCell(1, 2, CellType.WALL);
-            maze.setCell(2, 2, CellType.WALL);
-            return maze;
-        }
-
-        MazeDTO maze = MazeDTO.create(width, height);
-
-        if (width == 1 && height == 1) {
-            maze.setCell(0, 0, CellType.PASSAGE);
-            return maze;
+            return MazeUtils.create3x3Maze();
         }
 
         if (width < 3 || height < 3) {
-            for (int y = 0; y < height; y++) {
-                for (int x = 0; x < width; x++) {
-                    maze.setCell(x, y, CellType.PASSAGE);
-                }
-            }
-            return maze;
+            return MazeUtils.createSmallMaze(width, height);
         }
 
+        MazeDTO maze = MazeDTO.create(width, height);
         Random random = new Random();
         List<Wall> walls = new ArrayList<>();
 
@@ -73,14 +51,12 @@ public class PrimGenerator implements Generator {
 
         while (!walls.isEmpty()) {
             Wall wall = walls.remove(random.nextInt(walls.size()));
-            int oppositeX = wall.x + wall.x - wall.fromX;
-            int oppositeY = wall.y + wall.y - wall.fromY;
+            int oppositeX = wall.x + (wall.x - wall.fromX);
+            int oppositeY = wall.y + (wall.y - wall.fromY);
 
             if (maze.isInBounds(oppositeX, oppositeY) && maze.getCell(oppositeX, oppositeY) == CellType.WALL) {
-
                 maze.setCell(wall.x, wall.y, CellType.PASSAGE);
                 maze.setCell(oppositeX, oppositeY, CellType.PASSAGE);
-
                 addWalls(maze, oppositeX, oppositeY, walls);
             }
         }
