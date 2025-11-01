@@ -35,7 +35,7 @@ class UnicodeRenderTest {
 
     @Test
     void testRenderWithUnicode() {
-        MazeDTO maze = new MazeDTO(3, 3);
+        MazeDTO maze = MazeDTO.create(3, 3);
         maze.setCell(1, 1, CellType.PASSAGE);
 
         assertDoesNotThrow(() -> MazeRenderer.renderMaze(maze, true));
@@ -44,7 +44,7 @@ class UnicodeRenderTest {
 
     @Test
     void testSolutionRenderWithUnicode() {
-        MazeDTO maze = new MazeDTO(3, 3);
+        MazeDTO maze = MazeDTO.create(3, 3);
         for (int y = 0; y < 3; y++) {
             for (int x = 0; x < 3; x++) {
                 maze.setCell(x, y, CellType.PASSAGE);

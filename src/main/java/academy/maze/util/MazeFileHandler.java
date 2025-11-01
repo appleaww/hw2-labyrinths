@@ -24,7 +24,7 @@ public class MazeFileHandler {
         int height = lines.size();
         int width = lines.get(0).length();
 
-        MazeDTO maze = new MazeDTO(width, height);
+        MazeDTO maze = MazeDTO.create(width, height);
 
         for (int y = 0; y < height; y++) {
             String line = lines.get(y);
@@ -71,7 +71,7 @@ public class MazeFileHandler {
     }
 
     private static MazeDTO createSolutionMaze(MazeDTO original, PathDTO path, PointDTO start, PointDTO end) {
-        MazeDTO solution = new MazeDTO(original.getWidth(), original.getHeight());
+        MazeDTO solution = MazeDTO.create(original.getWidth(), original.getHeight());
 
         for (int y = 0; y < original.getHeight(); y++) {
             for (int x = 0; x < original.getWidth(); x++) {

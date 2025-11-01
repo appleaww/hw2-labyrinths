@@ -24,7 +24,7 @@ public class PrimGenerator implements Generator {
             throw new IllegalArgumentException("Maze dimensions must be at least 1x1");
         }
 
-        MazeDTO maze = new MazeDTO(width, height);
+        MazeDTO maze = MazeDTO.create(width, height);
 
         if (width == 1 && height == 1) {
             maze.setCell(0, 0, CellType.PASSAGE);

@@ -13,7 +13,7 @@ public class DFSGenerator implements Generator {
             throw new IllegalArgumentException("Maze dimensions must be at least 1x1");
         }
 
-        MazeDTO maze = new MazeDTO(width, height);
+        MazeDTO maze = MazeDTO.create(width, height);
         if (width < 3 || height < 3) {
             for (int y = 0; y < height; y++) {
                 for (int x = 0; x < width; x++) {

@@ -1,18 +1,23 @@
 package academy.maze.dto;
 
-public class MazeDTO {
+
+public final class MazeDTO {
     private final int width;
     private final int height;
     private final CellType[][] grid;
 
-    public MazeDTO(int width, int height) {
-        if (width <= 0 || height <= 0) {
-            throw new IllegalArgumentException("Maze dimensions must be positive");
-        }
+    MazeDTO(int width, int height) {
         this.width = width;
         this.height = height;
         this.grid = new CellType[height][width];
         initializeGrid();
+    }
+
+    public static MazeDTO create(int width, int height) {
+        if (width <= 0 || height <= 0) {
+            throw new IllegalArgumentException("Maze dimensions must be positive");
+        }
+        return new MazeDTO(width, height);
     }
 
     private void initializeGrid() {

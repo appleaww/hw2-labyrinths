@@ -13,7 +13,7 @@ import org.junit.jupiter.api.Test;
 class MazeSolverTest {
 
     private MazeDTO createSimpleMaze() {
-        MazeDTO maze = new MazeDTO(5, 5);
+        MazeDTO maze = MazeDTO.create(5, 5);
         for (int y = 0; y < 5; y++) {
             for (int x = 0; x < 5; x++) {
                 maze.setCell(x, y, CellType.PASSAGE);
@@ -24,7 +24,7 @@ class MazeSolverTest {
     }
 
     private MazeDTO createMazeWithWalls() {
-        MazeDTO maze = new MazeDTO(5, 5);
+        MazeDTO maze = MazeDTO.create(5, 5);
 
         for (int y = 0; y < 5; y++) {
             for (int x = 0; x < 5; x++) {
@@ -96,7 +96,7 @@ class MazeSolverTest {
 
     @Test
     void testNoPath() {
-        MazeDTO maze = new MazeDTO(3, 3);
+        MazeDTO maze = MazeDTO.create(3, 3);
         for (int y = 0; y < 3; y++) {
             for (int x = 0; x < 3; x++) {
                 maze.setCell(x, y, CellType.WALL);
