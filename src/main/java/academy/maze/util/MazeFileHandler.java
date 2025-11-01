@@ -9,8 +9,6 @@ import java.nio.file.Files;
 
 public class MazeFileHandler {
 
-    private static final MazeSymbols FILE_SYMBOLS = MazeSymbols.ascii();
-
     public static MazeDTO loadMaze(File file) throws IOException {
         if (!file.exists()) {
             throw new FileNotFoundException("File not found: " + file.getPath());
@@ -39,23 +37,6 @@ public class MazeFileHandler {
         }
 
         return maze;
-    }
-
-    private static char convertCellTypeToChar(CellType cellType) {
-        switch (cellType) {
-            case WALL:
-                return FILE_SYMBOLS.getWall();
-            case PASSAGE:
-                return FILE_SYMBOLS.getPassage();
-            case START:
-                return FILE_SYMBOLS.getStart();
-            case END:
-                return FILE_SYMBOLS.getEnd();
-            case PATH:
-                return FILE_SYMBOLS.getPath();
-            default:
-                return '?';
-        }
     }
 
     public static void saveMaze(MazeDTO maze, File file) throws IOException {
