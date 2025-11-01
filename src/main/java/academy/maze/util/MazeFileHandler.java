@@ -41,7 +41,7 @@ public class MazeFileHandler {
 
     public static void saveMaze(MazeDTO maze, File file) throws IOException {
         try (PrintWriter writer = new PrintWriter(Files.newBufferedWriter(file.toPath()))) {
-            writer.print(maze.toString());
+            writer.println(maze.toString());
         }
     }
 
