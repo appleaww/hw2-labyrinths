@@ -4,6 +4,7 @@ import academy.maze.dto.CellType;
 import academy.maze.dto.MazeDTO;
 import academy.maze.dto.PathDTO;
 import academy.maze.dto.PointDTO;
+import academy.maze.util.MazeUtils;
 import java.util.*;
 
 public class AStarSolver implements Solver {
@@ -72,7 +73,8 @@ public class AStarSolver implements Solver {
 
             closedSet.add(current.point);
 
-            for (PointDTO neighbor : getNeighbors(maze, current.point)) {
+            // ИСПРАВЛЕНИЕ: Используем утилитный метод вместо дублирования
+            for (PointDTO neighbor : MazeUtils.getNeighbors(maze, current.point)) {
                 if (closedSet.contains(neighbor)) {
                     continue;
                 }
@@ -95,22 +97,6 @@ public class AStarSolver implements Solver {
 
     private double heuristic(PointDTO a, PointDTO b) {
         return Math.abs(a.x() - b.x()) + Math.abs(a.y() - b.y());
-    }
-
-    private List<PointDTO> getNeighbors(MazeDTO maze, PointDTO point) {
-        List<PointDTO> neighbors = new ArrayList<>();
-        int[][] directions = {{0, -1}, {1, 0}, {0, 1}, {-1, 0}};
-
-        for (int[] dir : directions) {
-            int nx = point.x() + dir[0];
-            int ny = point.y() + dir[1];
-
-            if (maze.isInBounds(nx, ny) && maze.getCell(nx, ny) != CellType.WALL) {
-                neighbors.add(new PointDTO(nx, ny));
-            }
-        }
-
-        return neighbors;
     }
 
     private PathDTO reconstructPath(Node endNode) {
