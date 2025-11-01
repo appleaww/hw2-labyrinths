@@ -6,7 +6,7 @@ import java.io.File;
 import java.util.concurrent.Callable;
 import picocli.CommandLine;
 
-@CommandLine.Command(name = "generate", description = "Generate a maze with specified algorithm and dimensions")
+@CommandLine.Command(name = "generate", description = "Generate a maze with specified algorithm and dimensions.")
 public class GenerateCommand implements Callable<Integer> {
 
     @CommandLine.Option(
@@ -52,7 +52,7 @@ public class GenerateCommand implements Callable<Integer> {
 
             return 0;
         } catch (Exception e) {
-            System.err.println("Error: " + e.getMessage());
+            System.err.println(e.getMessage());
             return 1;
         }
     }

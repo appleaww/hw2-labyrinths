@@ -7,7 +7,7 @@ import java.io.File;
 import java.util.concurrent.Callable;
 import picocli.CommandLine;
 
-@CommandLine.Command(name = "solve", description = "Solve a maze with specified algorithm and points")
+@CommandLine.Command(name = "solve", description = "Solve a maze with specified algorithm and points.")
 public class SolveCommand implements Callable<Integer> {
 
     @CommandLine.Option(
@@ -63,7 +63,7 @@ public class SolveCommand implements Callable<Integer> {
 
             return 0;
         } catch (Exception e) {
-            System.err.println("Error: " + e.getMessage());
+            System.err.println(e.getMessage());
             return 1;
         }
     }

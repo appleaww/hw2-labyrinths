@@ -15,24 +15,25 @@ public class DFSGenerator implements Generator {
 
         MazeDTO maze = MazeDTO.create(width, height);
 
-        if (width <= 3 && height <= 3) {
-            if (width == 3 && height == 3) {
-                maze.setCell(0, 0, CellType.WALL);
-                maze.setCell(1, 0, CellType.WALL);
-                maze.setCell(2, 0, CellType.WALL);
+        if (width == 3 && height == 3) {
+            maze.setCell(0, 0, CellType.WALL);
+            maze.setCell(1, 0, CellType.WALL);
+            maze.setCell(2, 0, CellType.WALL);
 
-                maze.setCell(0, 1, CellType.WALL);
-                maze.setCell(1, 1, CellType.PASSAGE);
-                maze.setCell(2, 1, CellType.WALL);
+            maze.setCell(0, 1, CellType.WALL);
+            maze.setCell(1, 1, CellType.PASSAGE);
+            maze.setCell(2, 1, CellType.WALL);
 
-                maze.setCell(0, 2, CellType.WALL);
-                maze.setCell(1, 2, CellType.WALL);
-                maze.setCell(2, 2, CellType.WALL);
-            } else {
-                for (int y = 0; y < height; y++) {
-                    for (int x = 0; x < width; x++) {
-                        maze.setCell(x, y, CellType.PASSAGE);
-                    }
+            maze.setCell(0, 2, CellType.WALL);
+            maze.setCell(1, 2, CellType.WALL);
+            maze.setCell(2, 2, CellType.WALL);
+            return maze;
+        }
+
+        if (width < 3 || height < 3) {
+            for (int y = 0; y < height; y++) {
+                for (int x = 0; x < width; x++) {
+                    maze.setCell(x, y, CellType.PASSAGE);
                 }
             }
             return maze;
