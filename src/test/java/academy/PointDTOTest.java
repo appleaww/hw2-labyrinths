@@ -1,8 +1,9 @@
 package academy;
 
+import static org.junit.jupiter.api.Assertions.*;
+
 import academy.maze.dto.PointDTO;
 import org.junit.jupiter.api.Test;
-import static org.junit.jupiter.api.Assertions.*;
 
 class PointDTOTest {
 

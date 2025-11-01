@@ -7,7 +7,6 @@ public class MazeSymbols {
     private final char start;
     private final char end;
 
-
     private MazeSymbols(char wall, char passage, char path, char start, char end) {
         this.wall = wall;
         this.passage = passage;
@@ -21,18 +20,26 @@ public class MazeSymbols {
     }
 
     public static MazeSymbols unicode() {
-        return new MazeSymbols(
-            '█',
-            ' ',
-            '·',
-            'S',
-            'E'
-        );
+        return new MazeSymbols('█', ' ', '·', 'S', 'E');
     }
 
-    public char getWall() { return wall; }
-    public char getPassage() { return passage; }
-    public char getPath() { return path; }
-    public char getStart() { return start; }
-    public char getEnd() { return end; }
+    public char getWall() {
+        return wall;
+    }
+
+    public char getPassage() {
+        return passage;
+    }
+
+    public char getPath() {
+        return path;
+    }
+
+    public char getStart() {
+        return start;
+    }
+
+    public char getEnd() {
+        return end;
+    }
 }

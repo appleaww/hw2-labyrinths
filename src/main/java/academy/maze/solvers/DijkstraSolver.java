@@ -4,7 +4,6 @@ import academy.maze.dto.CellType;
 import academy.maze.dto.MazeDTO;
 import academy.maze.dto.PathDTO;
 import academy.maze.dto.PointDTO;
-
 import java.util.*;
 
 public class DijkstraSolver implements Solver {
@@ -21,9 +20,8 @@ public class DijkstraSolver implements Solver {
 
         Map<PointDTO, Double> distances = new HashMap<>();
         Map<PointDTO, PointDTO> previous = new HashMap<>();
-        PriorityQueue<PointDTO> queue = new PriorityQueue<>(
-            Comparator.comparingDouble(p -> distances.getOrDefault(p, Double.MAX_VALUE))
-        );
+        PriorityQueue<PointDTO> queue =
+                new PriorityQueue<>(Comparator.comparingDouble(p -> distances.getOrDefault(p, Double.MAX_VALUE)));
         Set<PointDTO> visited = new HashSet<>();
 
         distances.put(start, 0.0);

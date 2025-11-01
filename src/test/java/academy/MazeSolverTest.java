@@ -1,5 +1,7 @@
 package academy;
 
+import static org.junit.jupiter.api.Assertions.*;
+
 import academy.maze.dto.CellType;
 import academy.maze.dto.MazeDTO;
 import academy.maze.dto.PathDTO;
@@ -7,7 +9,6 @@ import academy.maze.dto.PointDTO;
 import academy.maze.solvers.AStarSolver;
 import academy.maze.solvers.DijkstraSolver;
 import org.junit.jupiter.api.Test;
-import static org.junit.jupiter.api.Assertions.*;
 
 class MazeSolverTest {
 

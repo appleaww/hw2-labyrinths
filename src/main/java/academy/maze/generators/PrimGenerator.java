@@ -2,7 +2,6 @@ package academy.maze.generators;
 
 import academy.maze.dto.CellType;
 import academy.maze.dto.MazeDTO;
-
 import java.util.*;
 
 public class PrimGenerator implements Generator {
@@ -61,8 +60,7 @@ public class PrimGenerator implements Generator {
             int oppositeX = wall.x + (wall.x - wall.fromX);
             int oppositeY = wall.y + (wall.y - wall.fromY);
 
-            if (maze.isInBounds(oppositeX, oppositeY) &&
-                maze.getCell(oppositeX, oppositeY) == CellType.WALL) {
+            if (maze.isInBounds(oppositeX, oppositeY) && maze.getCell(oppositeX, oppositeY) == CellType.WALL) {
 
                 maze.setCell(wall.x, wall.y, CellType.PASSAGE);
                 maze.setCell(oppositeX, oppositeY, CellType.PASSAGE);

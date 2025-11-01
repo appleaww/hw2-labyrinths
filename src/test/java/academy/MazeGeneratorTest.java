@@ -1,11 +1,12 @@
 package academy;
 
+import static org.junit.jupiter.api.Assertions.*;
+
 import academy.maze.dto.CellType;
 import academy.maze.dto.MazeDTO;
 import academy.maze.generators.DFSGenerator;
 import academy.maze.generators.PrimGenerator;
 import org.junit.jupiter.api.Test;
-import static org.junit.jupiter.api.Assertions.*;
 
 class MazeGeneratorTest {
 

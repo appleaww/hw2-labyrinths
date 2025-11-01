@@ -3,7 +3,6 @@ package academy.maze.generators;
 import academy.maze.dto.CellType;
 import academy.maze.dto.MazeDTO;
 import academy.maze.dto.PointDTO;
-
 import java.util.*;
 
 public class DFSGenerator implements Generator {
@@ -51,9 +50,8 @@ public class DFSGenerator implements Generator {
                 int nx = current.x() + dir[0];
                 int ny = current.y() + dir[1];
 
-                if (nx > 0 && nx < genWidth && ny > 0 && ny < genHeight &&
-                    maze.getCell(nx, ny) == CellType.WALL) {
-                    neighbors.add(new int[]{dir[0], dir[1]});
+                if (nx > 0 && nx < genWidth && ny > 0 && ny < genHeight && maze.getCell(nx, ny) == CellType.WALL) {
+                    neighbors.add(new int[] {dir[0], dir[1]});
                 }
             }
 

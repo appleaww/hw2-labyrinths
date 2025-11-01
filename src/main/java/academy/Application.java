@@ -6,12 +6,11 @@ import picocli.CommandLine;
 import picocli.CommandLine.Command;
 
 @Command(
-    name = "maze",
-    version = "1.0",
-    description = "Maze generator and solver",
-    mixinStandardHelpOptions = true,
-    subcommands = {GenerateCommand.class, SolveCommand.class}
-)
+        name = "maze",
+        version = "1.0",
+        description = "Maze generator and solver",
+        mixinStandardHelpOptions = true,
+        subcommands = {GenerateCommand.class, SolveCommand.class})
 public class Application implements Runnable {
 
     @Override

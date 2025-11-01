@@ -1,15 +1,15 @@
 package academy;
 
+import static org.junit.jupiter.api.Assertions.*;
+
 import academy.maze.dto.CellType;
 import academy.maze.dto.MazeDTO;
 import academy.maze.dto.PathDTO;
 import academy.maze.dto.PointDTO;
 import academy.maze.util.MazeRenderer;
 import academy.maze.util.MazeSymbols;
-import org.junit.jupiter.api.Test;
 import java.util.Arrays;
-
-import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.Test;
 
 class UnicodeRenderTest {
 
@@ -51,18 +51,12 @@ class UnicodeRenderTest {
             }
         }
 
-        PathDTO path = new PathDTO(Arrays.asList(
-            new PointDTO(0, 0),
-            new PointDTO(1, 1),
-            new PointDTO(2, 2)
-        ));
+        PathDTO path = new PathDTO(Arrays.asList(new PointDTO(0, 0), new PointDTO(1, 1), new PointDTO(2, 2)));
 
         PointDTO start = new PointDTO(0, 0);
         PointDTO end = new PointDTO(2, 2);
 
-        assertDoesNotThrow(() ->
-            MazeRenderer.renderSolution(maze, path, start, end, true));
-        assertDoesNotThrow(() ->
-            MazeRenderer.renderSolution(maze, path, start, end, false));
+        assertDoesNotThrow(() -> MazeRenderer.renderSolution(maze, path, start, end, true));
+        assertDoesNotThrow(() -> MazeRenderer.renderSolution(maze, path, start, end, false));
     }
 }

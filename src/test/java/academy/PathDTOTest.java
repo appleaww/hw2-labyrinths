@@ -1,12 +1,13 @@
 package academy;
 
+import static org.junit.jupiter.api.Assertions.*;
+
 import academy.maze.dto.PathDTO;
 import academy.maze.dto.PointDTO;
-import org.junit.jupiter.api.Test;
-import static org.junit.jupiter.api.Assertions.*;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import org.junit.jupiter.api.Test;
 
 class PathDTOTest {
 
@@ -21,11 +22,7 @@ class PathDTOTest {
 
     @Test
     void testPathWithPoints() {
-        List<PointDTO> points = Arrays.asList(
-            new PointDTO(0, 0),
-            new PointDTO(1, 1),
-            new PointDTO(2, 2)
-        );
+        List<PointDTO> points = Arrays.asList(new PointDTO(0, 0), new PointDTO(1, 1), new PointDTO(2, 2));
 
         PathDTO path = new PathDTO(points);
         assertEquals(3, path.length());
@@ -60,10 +57,7 @@ class PathDTOTest {
 
     @Test
     void testPathFromUnmodifiableList() {
-        List<PointDTO> points = Arrays.asList(
-            new PointDTO(0, 0),
-            new PointDTO(1, 1)
-        );
+        List<PointDTO> points = Arrays.asList(new PointDTO(0, 0), new PointDTO(1, 1));
         List<PointDTO> unmodifiable = List.of(points.toArray(new PointDTO[0]));
         PathDTO path = new PathDTO(unmodifiable);
         assertEquals(2, path.length());

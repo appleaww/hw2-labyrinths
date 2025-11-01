@@ -23,14 +23,13 @@ public class MazeRenderer {
         System.out.print(sb.toString());
     }
 
-    public static void renderSolution(MazeDTO originalMaze, PathDTO path,
-                                      PointDTO start, PointDTO end, boolean useUnicode) {
-        renderSolution(originalMaze, path, start, end,
-            useUnicode ? MazeSymbols.unicode() : MazeSymbols.ascii());
+    public static void renderSolution(
+            MazeDTO originalMaze, PathDTO path, PointDTO start, PointDTO end, boolean useUnicode) {
+        renderSolution(originalMaze, path, start, end, useUnicode ? MazeSymbols.unicode() : MazeSymbols.ascii());
     }
 
-    public static void renderSolution(MazeDTO originalMaze, PathDTO path,
-                                      PointDTO start, PointDTO end, MazeSymbols symbols) {
+    public static void renderSolution(
+            MazeDTO originalMaze, PathDTO path, PointDTO start, PointDTO end, MazeSymbols symbols) {
         StringBuilder sb = new StringBuilder();
         for (int y = 0; y < originalMaze.getHeight(); y++) {
             for (int x = 0; x < originalMaze.getWidth(); x++) {
@@ -61,12 +60,18 @@ public class MazeRenderer {
 
     private static char convertCellTypeToSymbol(CellType cellType, MazeSymbols symbols) {
         switch (cellType) {
-            case WALL: return symbols.getWall();
-            case PASSAGE: return symbols.getPassage();
-            case START: return symbols.getStart();
-            case END: return symbols.getEnd();
-            case PATH: return symbols.getPath();
-            default: return '?';
+            case WALL:
+                return symbols.getWall();
+            case PASSAGE:
+                return symbols.getPassage();
+            case START:
+                return symbols.getStart();
+            case END:
+                return symbols.getEnd();
+            case PATH:
+                return symbols.getPath();
+            default:
+                return '?';
         }
     }
 }

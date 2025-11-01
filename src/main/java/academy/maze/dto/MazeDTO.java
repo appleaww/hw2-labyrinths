@@ -77,4 +77,3 @@ public class MazeDTO {
         return sb.toString();
     }
 }
-

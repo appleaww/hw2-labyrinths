@@ -4,7 +4,6 @@ import academy.maze.dto.CellType;
 import academy.maze.dto.MazeDTO;
 import academy.maze.dto.PathDTO;
 import academy.maze.dto.PointDTO;
-
 import java.util.*;
 
 public class AStarSolver implements Solver {

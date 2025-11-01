@@ -4,10 +4,8 @@ import academy.maze.dto.CellType;
 import academy.maze.dto.MazeDTO;
 import academy.maze.dto.PathDTO;
 import academy.maze.dto.PointDTO;
-
 import java.io.*;
 import java.nio.file.Files;
-import java.nio.file.Path;
 
 public class MazeFileHandler {
 
@@ -42,17 +40,23 @@ public class MazeFileHandler {
 
         return maze;
     }
+
     private static char convertCellTypeToChar(CellType cellType) {
         switch (cellType) {
-            case WALL: return FILE_SYMBOLS.getWall();
-            case PASSAGE: return FILE_SYMBOLS.getPassage();
-            case START: return FILE_SYMBOLS.getStart();
-            case END: return FILE_SYMBOLS.getEnd();
-            case PATH: return FILE_SYMBOLS.getPath();
-            default: return '?';
+            case WALL:
+                return FILE_SYMBOLS.getWall();
+            case PASSAGE:
+                return FILE_SYMBOLS.getPassage();
+            case START:
+                return FILE_SYMBOLS.getStart();
+            case END:
+                return FILE_SYMBOLS.getEnd();
+            case PATH:
+                return FILE_SYMBOLS.getPath();
+            default:
+                return '?';
         }
     }
-
 
     public static void saveMaze(MazeDTO maze, File file) throws IOException {
         try (PrintWriter writer = new PrintWriter(new FileWriter(file))) {
@@ -60,7 +64,8 @@ public class MazeFileHandler {
         }
     }
 
-    public static void saveSolution(MazeDTO originalMaze, PathDTO path, PointDTO start, PointDTO end, File file) throws IOException {
+    public static void saveSolution(MazeDTO originalMaze, PathDTO path, PointDTO start, PointDTO end, File file)
+            throws IOException {
         MazeDTO solutionMaze = createSolutionMaze(originalMaze, path, start, end);
         saveMaze(solutionMaze, file);
     }
