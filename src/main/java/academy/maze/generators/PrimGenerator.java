@@ -51,8 +51,8 @@ public class PrimGenerator implements Generator {
 
         while (!walls.isEmpty()) {
             Wall wall = walls.remove(random.nextInt(walls.size()));
-            int oppositeX = wall.x + (wall.x - wall.fromX);
-            int oppositeY = wall.y + (wall.y - wall.fromY);
+            int oppositeX = wall.x + wall.x - wall.fromX;
+            int oppositeY = wall.y + wall.y - wall.fromY;
 
             if (maze.isInBounds(oppositeX, oppositeY) && maze.getCell(oppositeX, oppositeY) == CellType.WALL) {
                 maze.setCell(wall.x, wall.y, CellType.PASSAGE);
