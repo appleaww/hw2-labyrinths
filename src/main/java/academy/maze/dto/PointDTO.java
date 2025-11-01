@@ -10,8 +10,12 @@ public record PointDTO(int x, int y) {
     public static PointDTO fromString(String str) {
         String[] parts = str.split(",");
         if (parts.length != 2) {
-            throw new IllegalArgumentException("Point must be in format 'x,y'");
+            throw new IllegalArgumentException("Invalid point format: " + str + ", expected format: x,y");
         }
-        return new PointDTO(Integer.parseInt(parts[0]), Integer.parseInt(parts[1]));
+        try {
+            return new PointDTO(Integer.parseInt(parts[0]), Integer.parseInt(parts[1]));
+        } catch (NumberFormatException e) {
+            throw new IllegalArgumentException("Invalid point format: " + str + ", expected format: x,y");
+        }
     }
 }

@@ -6,9 +6,9 @@ import picocli.CommandLine;
 import picocli.CommandLine.Command;
 
 @Command(
-        name = "maze",
+        name = "maze-app",
         version = "1.0",
-        description = "Maze generator and solver",
+        description = "Maze generator and solver CLI application.",
         mixinStandardHelpOptions = true,
         subcommands = {GenerateCommand.class, SolveCommand.class})
 public class Application implements Runnable {

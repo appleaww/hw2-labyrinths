@@ -6,7 +6,7 @@ import java.io.File;
 import java.util.concurrent.Callable;
 import picocli.CommandLine;
 
-@CommandLine.Command(name = "generate", description = "Generate a maze using specified algorithm")
+@CommandLine.Command(name = "generate", description = "Generate a maze with specified algorithm and dimensions")
 public class GenerateCommand implements Callable<Integer> {
 
     @CommandLine.Option(
@@ -46,7 +46,6 @@ public class GenerateCommand implements Callable<Integer> {
 
             if (outputFile != null) {
                 MazeFileHandler.saveMaze(maze, outputFile);
-                System.out.println("Maze saved to: " + outputFile.getPath());
             } else {
                 MazeRenderer.renderMaze(maze, useUnicode);
             }
