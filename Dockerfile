@@ -2,8 +2,6 @@ ARG RUNTIME_IMAGE=eclipse-temurin:24-jre
 
 FROM ${RUNTIME_IMAGE}
 
-WORKDIR /app
-USER nobody
-COPY target/project-1.0.jar .
+COPY target/maze-app-jar-with-dependencies.jar ./maze-app.jar
 
-ENTRYPOINT ["java", "-cp", "project-1.0.jar", "academy.Application"]
+ENTRYPOINT ["java", "-jar", "maze-app.jar"]
