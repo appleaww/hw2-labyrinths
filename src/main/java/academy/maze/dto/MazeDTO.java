@@ -74,9 +74,7 @@ public final class MazeDTO {
             for (int x = 0; x < width; x++) {
                 sb.append(grid[y][x].getSymbol());
             }
-            if (y < height - 1) {
-                sb.append('\n');
-            }
+            sb.append('\n');
         }
         return sb.toString();
     }

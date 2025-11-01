@@ -41,12 +41,17 @@ public class MazeFileHandler {
 
     public static void saveMaze(MazeDTO maze, File file) throws IOException {
         try (PrintWriter writer = new PrintWriter(Files.newBufferedWriter(file.toPath()))) {
-            writer.println(maze.toString());
+            for (int y = 0; y < maze.getHeight(); y++) {
+                for (int x = 0; x < maze.getWidth(); x++) {
+                    writer.print(maze.getCell(x, y).getSymbol());
+                }
+                writer.println();
+            }
         }
     }
 
     public static void saveSolution(MazeDTO originalMaze, PathDTO path, PointDTO start, PointDTO end, File file)
-            throws IOException {
+        throws IOException {
         MazeDTO solutionMaze = createSolutionMaze(originalMaze, path, start, end);
         saveMaze(solutionMaze, file);
     }
