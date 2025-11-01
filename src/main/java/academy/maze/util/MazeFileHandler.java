@@ -59,7 +59,7 @@ public class MazeFileHandler {
     }
 
     public static void saveMaze(MazeDTO maze, File file) throws IOException {
-        try (PrintWriter writer = new PrintWriter(new FileWriter(file))) {
+        try (PrintWriter writer = new PrintWriter(Files.newBufferedWriter(file.toPath()))) {
             writer.print(maze.toString());
         }
     }

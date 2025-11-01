@@ -33,7 +33,7 @@ public class DFSGenerator implements Generator {
         }
 
         Random random = new Random();
-        Stack<PointDTO> stack = new Stack<>();
+        Deque<PointDTO> stack = new ArrayDeque<>();
 
         int startX = 1;
         int startY = 1;
